@@ -48,6 +48,7 @@
       <h4>ABOUT US</h4>
       <p>You can find our open-source repository <a href="https://www.pornhub.com" style="text-decoration: none; color: blue;">here</a>, encouraging developers to contribute, learn, and customize the website</p>
    </div>
+   <button id="mode-toggle" onclick="toggleMode()">Toggle Mode</button>
 </div>
 <style>
    body, html {
@@ -116,6 +117,18 @@
    margin-bottom: 10px;
    overflow: auto;
    white-space: nowrap; 
+   }
+   #mode-toggle {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   width: 50px;
+   height: 50px;
+   background-color: #333;
+   color: #fff;
+   border-radius: 50%;
+   border: none;
+   cursor: pointer;
    }
 </style>
 <script>
@@ -210,6 +223,11 @@ async function submitForm() {
          function update(card, count, id, index, target) {
            let container = card.querySelector('.count-text');
            container.textContent = `${index + 1}. ID: ${id} | ${count}/${target}`;
+         }
+         
+         function toggleMode() {
+           const body = document.body;
+           body.classList.toggle('dark-mode');
          }
          
          linkOfProcessing();
